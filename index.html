@@ -1,0 +1,668 @@
+
+<head>
+	<!--/公共jsp -->
+
+
+
+
+
+
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta name="format-detection" content="telephone=yes">
+	<title>交大校园码</title>
+
+	<link rel="stylesheet" href="bh-lib.min.css">
+	<link rel="stylesheet" href="iconfont.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="mob.css">
+	<link rel="stylesheet" href="skin.css">
+	<link rel="stylesheet" href="style.min.css">
+	<link rel="stylesheet" href="cropper.min.css">
+
+
+	<script>
+		var curDate = pageMeta.params.curDate;
+		var userName = pageMeta.params.userName;
+		var sftoon = navigator.userAgent.toLowerCase().indexOf("toongine")!=-1;
+	</script>
+    
+	<style type="text/css">
+
+		/* 定义keyframe动画，命名为blink */
+		@keyframes blink {
+			0% {
+				opacity: 1;
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+		/* 添加兼容性前缀 */
+		@-webkit-keyframes blink {
+			0% {
+				opacity: 1;
+			}
+
+			50% {
+				opacity: 1;
+			}
+
+			50.01% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@-moz-keyframes blink {
+			0% {
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@-ms-keyframes blink {
+			0% {
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@-o-keyframes blink {
+			0% {
+				opacity: 1;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+		/* 定义blink类*/
+		.blink {
+			color: #dd4814;
+			animation: blink 1s linear infinite;
+			/* 其它浏览器兼容性前缀 */
+			-webkit-animation: blink 1s linear infinite;
+			-moz-animation: blink 1s linear infinite;
+			-ms-animation: blink 1s linear infinite;
+			-o-animation: blink 1s linear infinite;
+		}
+
+		.detailmore {
+			color: #52C7CA;
+			float: right;
+			line-height: 50px;
+			font-size: 12px;
+		}
+	</style>
+	<style type ="text/css">
+		.bh-avatar-upload[data-v-19abc8d6] {
+			display: inline-block;
+		}
+
+		.bh-emapAvatar-upload[data-v-19abc8d6] {
+			position: relative;
+			display: block;
+		}
+
+		.bh-emapAvatar-upload input[data-v-19abc8d6] {
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.avatar-buttons[data-v-19abc8d6] {
+			width: 100%;
+			position: absolute;
+			/* bottom: 0; */
+			right: 0;
+		}
+
+		.avatar-button[data-v-19abc8d6] {
+			width: 50%;
+			float: left;
+		}
+	</style>
+	<style type="text/css">
+				.emapm-form textarea, .emapm-form input, .emapm-form span {
+					font-family: "PingFang SC","Microsoft YaHei","Times New Roman";
+				}
+
+				.emapm-form .mint-cell-group > .emapm-item .mint-cell:first-child .mint-cell-wrapper {
+					border-top: .5PX solid #e8e8e8;
+				}
+
+				.emapm-form .mint-cell .mint-cell-value {
+					padding: 8px 0;
+				}
+
+				.emapm-form .select-value {
+					text-align: left; /* form 人事 孙新 add by jbxu 2018-11-26 */
+				}
+
+				.emapm-item {
+					position: relative;
+				}
+
+					.emapm-item .mint-field .mint-cell-value.mt-color-grey-lv3 input {
+						color: inherit;
+					}
+
+				.emapm-form .mint-cell-group .emapm-item:first-child .mint-cell-wrapper {
+					border-top: none;
+				}
+				/* .emapm-form .mint-cell-group-title {
+			padding: 16px 20px 16px;
+			font-size: 16px;
+			line-height: 16px;
+		}
+		.emapm-form .mint-cell-group-title:before {
+			content: "｜";
+			color: #52C7CA;
+			font-size: 12px;
+			position: relative;
+			top: -2px;
+			left: -4px;
+		}
+
+		.emapm-form .cellgroup-title-hidden .mint-cell-group-title:before {
+			content: "";
+			font-size: 0
+		} */
+				.emapm-form .mint-cell-group-title {
+					/* font-weight: 600;
+			color: #1E2329; */
+					padding: 12px 20px 12px;
+				}
+
+
+
+
+				/* .emapm-form.emapm-form-readonly .mint-hairline--top-bottom {
+			position: inherit !important;
+		} */
+				.emapm-form input::-webkit-input-placeholder {
+					font-weight: 400 !important;
+				}
+
+				.emapm-form input::-webkit-input-placeholder {
+					font-weight: 400 !important;
+				}
+
+				.emapm-form input::-moz-placeholder {
+					/* Mozilla Firefox 19+ */
+					font-weight: 400 !important;
+				}
+
+				.emapm-form input:-moz-placeholder {
+					/* Mozilla Firefox 4 to 18 */
+					font-weight: 400 !important;
+				}
+
+				.emapm-form input:-ms-input-placeholder {
+					/* Internet Explorer 10-11 */
+					font-weight: 400 !important;
+				}
+
+				.emapm-form input {
+					font-weight: 400 !important;
+				}
+
+					.emapm-form input:focus {
+						font-weight: 400 !important;
+					}
+
+
+
+
+				/* 只读表单样式设置区 */
+
+				/* .emapm-form.emapm-form-readonly .mint-cell-group-title::before{
+			content: ''
+		} */
+				.emapm-form.emapm-form-readonly .mint-cell-group-title {
+					padding: 16px 20px 16px;
+					font-size: 16px;
+					line-height: 16px;
+					color: #1E2329;
+					background-color: #fff !important;
+					/* padding: 10px 20px 10px;
+			font-size: 14px;
+			line-height: 14px;
+			color: #92969c; */
+				}
+
+				.emapm-form.emapm-form-readonly .emapm-items {
+					/* margin-bottom:10px;
+			border-top: solid 1px #f4f4f4;*/
+				}
+
+				.emapm-form.emapm-form-readonly .mint-cell-group .mint-cell-group-content .emapm-item .mint-cell {
+					min-height: 0px;
+					padding: 6px 0;
+				}
+
+					.emapm-form.emapm-form-readonly .mint-cell-group .mint-cell-group-content .emapm-item .mint-cell .mint-cell-wrapper {
+						border-top-style: none;
+						font-size: 14px;
+					}
+
+				.emapm-form.emapm-form-readonly .mint-cell .mint-cell-value {
+					padding: 0;
+				}
+
+					.emapm-form.emapm-form-readonly .mint-cell .mint-cell-value .em-select-value, .emapm-form.emapm-form-readonly .mint-cell .mint-cell-value .mt-cell-diy-span {
+						color: #1E2329 !important;
+					}
+
+				.emapm-form.emapm-form-readonly .mint-cell-group-content {
+					/* padding-top:16px; */
+					padding-bottom: 10px;
+				}
+
+				.emapm-form.emapm-form-readonly .mint-hairline--top-bottom:after {
+					border-bottom-width: 1px;
+					border-top-width: 0;
+					border-color: #e8e8e8;
+				}
+
+				.emapm-form.emapm-form-readonly .mint-cell-group .emap-cellgroup-hastitle + .mint-cell-group-content .emapm-item:first-child {
+					padding-top: 10px;
+					border-top: solid 1px #f4f4f4;
+				}
+
+				.emapm-form.emapm-form-readonly .mint-cell-group .emap-cellgroup-notitle {
+					/* border-bottom:solid 1px #f4f4f4; */
+					padding: 0;
+				}
+
+					.emapm-form.emapm-form-readonly .mint-cell-group .emap-cellgroup-notitle + .mint-cell-group-content .emapm-item:first-child {
+						/* border-top:solid 1px #f4f4f4; */
+						padding-top: 16px;
+					}
+
+				.emapm-form.emapm-form-readonly .em-select-value, .emapm-form.emapm-form-readonly .mt-cell-diy-span {
+					line-height: 16px;
+				}
+
+				.emapm-form.emapm-form-readonly .emapm-divide {
+					height: 10px;
+					border-bottom: solid 1px #f4f4f4;
+				}
+	</style>
+	<style type="text/css">
+	</style>
+	<style type="text/css">
+				.__em-textarea textarea[readonly="readonly"] {
+					resize: none;
+				}
+
+				.emapm-form.emapm-form-readonly .mint-cell-group .mint-cell-group-content .emapm-item .__em-textarea .mint-cell .mint-cell-wrapper {
+					align-items: baseline !important;
+				}
+				/* .emapm-form.emapm-form-readonly  .mint-cell-group .mint-cell-group-content .emapm-item .__em-textarea.__em-textarea-readonly {
+			background-color:#345678;
+		} */
+				/* .__em-textarea .mint-cell-wrapper {
+			align-items: baseline;
+		} */
+				.__em-textarea .mint-textarea .mint-cell-wrapper .mint-cell-value {
+					width: 100%;
+				}
+
+				.mt-cell-diy-span {
+					word-break: break-all;
+					/* text-align: right; */
+				}
+	</style>
+	<style type="text/css">
+	</style>
+	<style type="text/css">
+		.selector-pick-container .mint-box-group .mint-cell-group .mint-cell-group-content .mint-cell:first-child .mint-cell-wrapper[data-v-6c673692] {
+			border-top: none;
+		}
+	</style>
+	<style type="text/css">
+		.vf-h {
+			overflow: hidden !important;
+		}
+	</style>
+	<style type="text/css">
+		.mint-selected-footer.__emapm[data-v-5b3d36f0] {
+			z-index: 2;
+			position: absolute;
+		}
+
+		.mint-selected-footer-list-mask[data-v-5b3d36f0] {
+			background-color: rgba(0, 0, 0, .5);
+		}
+
+		.mint-selected-footer-list-container[data-v-5b3d36f0] {
+			background-color: white;
+		}
+	</style>
+	<style type="text/css">
+		.slip-enter-active[data-v-1e05a942],
+		.slip-leave-active[data-v-1e05a942] {
+			transition: transform .25s
+		}
+
+		.slip-enter[data-v-1e05a942],
+		.slip-leave-to[data-v-1e05a942] {
+			transform: translateX(100%);
+		}
+
+		.selector-pick-container[data-v-1e05a942] {
+			position: fixed;
+			width: 100vw;
+			height: 100%;
+			left: 0;
+			top: 0;
+			overflow: auto;
+			background-color: #f9f9f9;
+			z-index: 999;
+		}
+	</style>
+	<style type="text/css">
+	</style>
+	<style type="text/css">
+		.emapm-date-picker .mint-picker-column__frame {
+			position: absolute;
+		}
+	</style>
+	<style type="text/css">
+		.__em-selectlist .mint-picker-column__frame {
+			position: absolute;
+		}
+
+		.__em-selectlist .__em-selectlist-group {
+			max-height: 250px;
+			overflow: auto;
+		}
+	</style>
+	<style type="text/css">
+		.emapm-upload-imgs[data-v-a912844a] {
+			padding-bottom: 0px;
+		}
+	</style>
+	<style type="text/css">
+		.confirm_btn_class {
+			font-size: 14px;
+		}
+
+		.cancel_btn_class {
+			font-size: 14px;
+		}
+	</style>
+	<style type="text/css">
+		.bh-upload-wrap[data-v-615b2308] {
+			position: relative;
+			/* overflow: hidden; */
+			width: 100%;
+			/* display: flex!important; */
+		}
+
+		.bh-upload_required[data-v-615b2308] {
+			color: red;
+		}
+
+		.upload_item[data-v-615b2308] {
+			display: inline-block;
+			width: 75px;
+			height: 75px;
+			margin: 0px 8px 12px 0;
+			position: relative;
+			vertical-align: top;
+		}
+
+		.upload_item_none[data-v-615b2308] {
+			line-height: 75px;
+			margin: 0;
+		}
+
+		.cancel_upload_img[data-v-615b2308] {
+			position: absolute;
+			top: -13px;
+			right: -7px;
+			font-size: 18px;
+		}
+
+		.upload_img[data-v-615b2308] {
+			width: 75px;
+			height: 75px;
+		}
+
+		.upload_img_wrong[data-v-615b2308] {
+			width: 100px;
+			margin: 0;
+			line-height: 75px;
+		}
+
+		.bh-upload-wrap .color-pdf[data-v-615b2308] {
+			color: #F26666;
+		}
+
+		.bh-upload-wrap .color-doc[data-v-615b2308] {
+			color: #4A90E2;
+		}
+
+		.bh-upload-wrap .color-xlsx[data-v-615b2308] {
+			color: #A2D06B;
+		}
+
+		.bh-upload-wrap .color-ppt[data-v-615b2308] {
+			color: #F26666;
+		}
+
+		.bh-upload-wrap .color-zip[data-v-615b2308] {
+			color: #92969C;
+		}
+
+		.bh-upload-wrap .color-others[data-v-615b2308] {
+			color: #FFB950;
+		}
+	</style>
+	<style type="text/css">
+	</style>
+	<style type="text/css">
+			.__em-attachment-list[data-v-5a88c570] {
+				padding-left: 1px;
+			}
+
+			.__em-attachment-list .iconfont[data-v-5a88c570] {
+				font-size: 32px;
+				vertical-align: middle;
+				margin-right: 8px;
+			}
+
+			.__em-attachment-list-title[data-v-5a88c570] {
+				padding: 8px 0;
+				/* font-size:14px; */
+			}
+
+			.__em-attachment-list .file-info[data-v-5a88c570] {
+				flex: 1;
+			}
+
+			.__em-attachment-list .color-pdf[data-v-5a88c570] {
+				color: #F26666;
+			}
+
+			.__em-attachment-list .color-doc[data-v-5a88c570] {
+				color: #4A90E2;
+			}
+
+			.__em-attachment-list .color-xlsx[data-v-5a88c570] {
+				color: #A2D06B;
+			}
+
+			.__em-attachment-list .color-ppt[data-v-5a88c570] {
+				color: #F26666;
+			}
+
+			.__em-attachment-list .color-zip[data-v-5a88c570] {
+				color: #92969C;
+			}
+
+			.__em-attachment-list .color-others[data-v-5a88c570] {
+				color: #FFB950;
+			}
+
+			.__em-file-info_size[data-v-5a88c570] {
+				margin-top: 4px;
+				font-size: 14px;
+				color: #92969C;
+			}
+
+			.__em-file-info[data-v-5a88c570] {
+				width: calc(100% - 40px)
+			}
+
+			.__em-file-info > p[data-v-5a88c570] {
+				margin: 0;
+				padding: 1px 0 0 0;
+			}
+
+			.__em-file-info .__em-file-info_name[data-v-5a88c570] {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				padding-bottom: 4px;
+			}
+
+			.__em-img-icon[data-v-5a88c570] {
+				height: 32px;
+				width: 30px;
+				margin-right: 8px;
+			}
+			/* 只读表单下的设置 */
+			.emapm-form.emapm-form-readonly .__em-attachment-list[data-v-5a88c570] {
+				/* border-top-width: 1px;
+		border-top-style: solid;
+		padding: 8px 0 8px 1px;
+		border-color: #E8E8E8; */
+			}
+
+			.emapm-form.emapm-form-readonly .__em-attachment-list-title[data-v-5a88c570] {
+				padding: 6px 0;
+				font-size: 14px;
+			}
+
+			.emapm-form.emapm-form-readonly .__em-attachment-list[data-v-5a88c570] {
+				padding-left: 0px;
+			}
+	</style>
+	<style type="text/css">
+		.__em-attachment-list .mint-cell-title {
+			display: flex;
+			align-items: center;
+		}
+	</style>
+	<style type="text/css">
+	</style>
+</head>
+
+<body onload="showTime()">
+
+
+
+
+	<div id="app">
+		<!----> <div class="mint-layout-container">
+			<div class="mint-layout-container fxyq_fxsq fxyq_wcsq" style="margin-bottom: 60px;">
+				<div class="mint-layout-container">
+					<div class="sq-xslbdm-bks">
+						<div class="mint-layout-container bh-bg-color-light xszp_image"><img src="portrait_lsh.jpg" class="mint-image" style="width: 100px; height: 130px; margin: 3px;"></div> <div class="xsxx" style="width: calc(100vw - 160px);">
+							<div>
+								2160508097&nbsp;程海兵
+								<span style="font-size: 14px; margin-left: 10px;">本科生</span>
+							</div> <div>励志书院/信息62</div>
+						</div>
+						<div class="mint-layout-container OPjczlssvm" style="">
+						<div style="background-color: white; padding-bottom: 100px; min-height: 500px;">
+							<div style="padding: 10px 0px 0px 25px;"><div class="jkmgxsj-title">当前时间：</div> 
+							<div><span class="jkmgxsj-rq" id="month_day">05月25日</span> <span id="hh_mm_ss" class="jkmgxsj-sj">11:58:38</span></div></div> 
+							<div style="line-height: 30px; padding-top: 8px; padding-left: 25px; font-size: 14px;">
+								已于&nbsp;2020-05-24 12:29:07&nbsp;完成报到登记
+							</div> <div style="line-height: 30px; padding-top: 4px; padding-left: 25px; font-size: 14px;">
+								外出时间
+								<span style="color: rgb(255, 185, 80);">2020-05-26 20:00</span> <span>至</span> <span style="color: rgb(255, 185, 80);">2020-09-01 20:00</span>
+							</div> <div class="mint-text mt-color-grey" style="line-height: 30px; display: none;">&nbsp;&nbsp;</div> <div class="mint-text mt-color-grey" style="line-height: 5px;">&nbsp;&nbsp;</div> <div style="border: 1px solid rgb(232, 232, 232); width: 250px; height: 240px; margin-left: calc(50vw - 130px); margin-bottom: 8px; position: relative;">
+								<div style="width: 170px; height: 170px; display: inline-block; margin: 40px 40px 20px;"><div id="applyed_school_code" title=" A57156B9C5733267E053E207310AAFD3" style="margin: 10px;"><canvas width="150" height="150" style="display: none;"></canvas><img alt="Scan me!" src="purple_qrcode.png" style="display: block;"></div></div> <div style="position: absolute; top: 0px;"><img src="xsjkm_bg.png" class="mint-image" style="height: 30px;"></div> <div style="position: absolute; top: 0px; display: none;"><img src="xsjkm_bg1.png" class="mint-image" style="height: 30px;"></div> <div style="position: absolute; top: 0px; display: none;"><img src="xsjkm_bg2.png" class="mint-image" style="height: 30px;"></div> <div style="position: absolute; top: 0px; line-height: 31px; font-size: 16px; color: white; left: 35px;">
+									本科生
+								</div>
+							</div> <!----> <!----> <!----> <!----> 
+							<div style="padding-top: 0px; text-align: center; font-size: 14px;">
+								校园最安全，外出有风险
+							</div> 
+						</div>
+					</div>
+				</div>
+			</div> 
+			</div>
+				<div class="mint-tabbar mt-bg-lv3 mt-bColor-grey-lv6 is-fixed">
+				<a class="mint-tab-item is-selected ">
+					<div class="mint-tab-item-icon"><i class="iconfont mt-color-theme icon-daibanshiyiicon"></i><!----><!----></div><div class="mint-tab-item-label mt-color-theme">
+						交大校园码
+					</div><!---->
+				</a><a class="mint-tab-item">
+					<div class="mint-tab-item-icon"><i class="iconfont mt-color-grey-lv3 icon-daibanshiyiicon"></i><!----><!----></div><div class="mint-tab-item-label mt-color-grey-lv3">
+						返校申请
+					</div><!---->
+				</a><a class="mint-tab-item">
+					<div class="mint-tab-item-icon"><i class="iconfont mt-color-grey-lv3 icon-daibanshiyiicon"></i><!----><!----></div><div class="mint-tab-item-label mt-color-grey-lv3">
+						外出申请
+					</div><!---->
+				</a><a class="mint-tab-item">
+					<div class="mint-tab-item-icon"><i class="iconfont mt-color-grey-lv3 icon-daibanshiyiicon"></i><!----><!----></div><div class="mint-tab-item-label mt-color-grey-lv3">
+						转码申请
+					</div><!---->
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="mint-indicator" style="display: none;"><div class="mint-indicator-wrapper" style="padding: 15px;"><span class="mint-indicator-spin"><div class="mint-spinner-snake" style="border-top-color: rgb(214, 214, 214); border-left-color: rgb(214, 214, 214); border-bottom-color: rgb(214, 214, 214); height: 32px; width: 32px;"></div></span><span class="mint-indicator-text" style="display: none;"></span></div><div class="mint-indicator-mask"></div></div>
+
+	<script>
+		function showTime() {
+			//创建Date对象
+			var today = new Date();
+			//分别获取年、月、日、时、分、秒
+			var yy = today.getFullYear();
+			var mo = today.getMonth() + 1;
+			var dd = today.getDate();
+			var hh = today.getHours();
+			var mm = today.getMinutes();
+			var ss = today.getSeconds();
+
+			function t(a) { return a < 10 ? "0" + a : a; };
+			//输出时间的格式
+			var str1 = t(mo) + "月" + t(dd) + "日 ";
+			var str2 = t(hh) + ":" + t(mm) + ":" + t(ss);
+			document.getElementById("month_day").innerHTML = str1;
+			document.getElementById("hh_mm_ss").innerHTML = str2;
+		}
+        setInterval("showTime();", 1000);
+	</script>
+
+
+</body>
